@@ -6,6 +6,8 @@ def call(env)
   req = Rack::Request.new(env)
 
 if req.path=="/items"
+  item_name = req.path.split("/items/").last
+
   resp.write "You requested the items"
 else
   resp.write "Route not found"
@@ -14,4 +16,4 @@ end
 
 resp.finish
 end
-end     
+end
